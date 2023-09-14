@@ -23,13 +23,12 @@
 </html>
 <script>
      let headTag = document.getElementById("display");
-     let name = document.getElementById("name");
-     let gender = document.getElementById("gender");
+    
 
      function clickbutton()
-     {
-        headTag.innerText = "";
-        name.innerText="";
-        gender.innerText="";
+     { let name = document.getElementById("name");
+     let gender = document.getElementById("gender");
+        headTag.innerText = name.value + gender.value;
+        
      }
 </script>
