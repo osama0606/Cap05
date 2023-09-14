@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: Arial;
+        }
+        body{
+            background-color: rgb(243,236,230);
+        }
+        .parent{
+            /* border: 1px solid red; */
+            width: 78%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+        .parent>div{
+            background-color: white;
+            /* border: 1px solid blue; */
+            box-sizing: border-box;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+        .parent>div>div{
+            display: flex;
+            justify-content: space-between;
+        }
+        p{
+            margin: 0px;
+        }
+        .heading{
+            font-weight: bold;
+        }
+        .gold{
+            font-weight: bold;
+            color: rgb(187,144,68);
+        }
+        .info{
+            color: #999999;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        @media all and (max-width:520px){
+            .parent{
+                grid-template-columns: repeat(1,1fr);
+                grid-auto-rows: max-content;
+            }
+        }
+
+        @media all and (min-width:521px) and (max-width:1024px){
+            .parent{
+                width: 90%;
+                grid-template-columns: repeat(2,1fr);
+                grid-auto-rows: max-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div>
+            <div>
+                <p class="heading">Cappuccino</p>
+                <p class="gold">$49</p>
+            </div>
+            <p class="info">Usage of the internet is becoming more commom due to rapid advance.</p>
+        </div>
+        <div>
+            <div>
+                <p class="heading">Americano</p>
+                <p class="gold">$49</p>
+            </div>
+            <p class="info">Usage of the internet is becoming more commom due to rapid advance.</p>
+        </div>
+        <div>
+            <div>
+                <p class="heading">Espresso</p>
+                <p class="gold">$49</p>
+            </div>
+            <p class="info">Usage of the internet is becoming more commom due to rapid advance.</p>
+        </div>
+        <div>
+            <div>
+                <p class="heading">Macchiato</p>
+                <p class="gold">$49</p>
+            </div>
+            <p class="info">Usage of the internet is becoming more commom due to rapid advance.</p>
+        </div>
+        <div>
+            <div>
+                <p class="heading">Mocha</p>
+                <p class="gold">$49</p>
+            </div>
+            <p class="info">Usage of the internet is becoming more commom due to rapid advance.</p>
+        </div>
+        <div>
+            <div>
+                <p class="heading">Coffee Latte</p>
+                <p class="gold">$49</p>
+            </div>
+            <p class="info">Usage of the internet is becoming more commom due to rapid advance.</p>
+        </div>
+        <div>
+            <div>
+                <p class="heading">Piccolo Latte</p>
+                <p class="gold">$49</p>
+            </div>
+            <p class="info">Usage of the internet is becoming more commom due to rapid advance.</p>
+        </div>
+        <div>
+            <div>
+                <p class="heading">Ristretto</p>
+                <p class="gold">$49</p>
+            </div>
+            <p class="info">Usage of the internet is becoming more commom due to rapid advance.</p>
+        </div>
+        <div>
+            <div>
+                <p class="heading">Affogato</p>
+                <p class="gold">$49</p>
+            </div>
+            <p class="info">Usage of the internet is becoming more commom due to rapid advance.</p>
+        </div>
+    </div>
+</body>
+</html>

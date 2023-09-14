@@ -1,0 +1,109 @@
+body{
+    margin: 0;
+    background-color: rgb(225,194,114);
+    font-family: monospace;
+}
+
+.bg{
+    background-image: url("./khabib\ bg.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    
+}
+
+.main{
+    /* border: 1px solid red; */
+    position: absolute;
+    width: 45%;
+    background-color: rgb(203, 65, 65);
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 40px;
+
+}
+
+.main {
+    transform: translateY(-20px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.main:hover {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.photo{
+    text-align: center;
+    margin: auto;
+    width: 30%;
+}
+
+.photo>img{
+    max-width: 100%;
+    border-radius: 200px;
+    box-shadow: 0 0 100px orange;
+}
+
+.name{
+    color: rgb(92, 13, 13);
+    text-align: center;
+    font-size: 40px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 24px;
+    color: #ab8989;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #2c2020;
+    
+}
+
+ul {
+    font-size: 18px;
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #2c2020;
+}
+
+
+@media all and (max-width:1024px) {
+    .bg{
+        background-size: cover;
+    }
+    .main{
+        width: 80%;
+        position: static;
+    }
+}
+
+@media all and (max-width:520px){
+    .bg{
+        background-size: cover;
+    }
+    .main{
+        width: 90%;
+        position: static;
+    }
+}
+
+

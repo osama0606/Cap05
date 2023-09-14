@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Masai Calculator</title>
+    <style>
+        body{
+            font-family: Arial;
+        }
+        #parent{
+            display: grid;       
+            grid-template-columns:repeat(4,60px);
+            grid-auto-rows: 60px;
+            gap: 10px;
+            width: 28%;
+            margin: auto;
+            padding: 50px;
+            justify-content: center;
+           
+            border: 0px solid;
+            border-radius: 10px;  
+            box-shadow: 0px 0px 20px -1px #999999 ;
+        }
+
+        #parent>div{
+            text-align: center;
+            border: 0px solid;
+            padding:20px 0px;
+            font-weight: bold;
+            font-size: 20px;
+            box-shadow: 0px 0px 20px -1px #ddd ;
+            border-radius: 10px;
+        }
+
+        #parent>div:nth-child(1){
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
+
+        .child{
+            background-color: black;
+            color: white;
+        }
+
+        h1{
+            color: teal;
+            text-align: center;
+           
+        }
+   
+        
+    </style>
+</head>
+<body>
+    <h1>Masai Calculator</h1>
+    <div id="parent">
+        <div></div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div class="child">+</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div class="child">-</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div class="child">x</div>
+        <div style="background-color: red;color: white;">c</div>
+        <div>0</div>
+        <div class="child">=</div>
+        <div class="child">/</div>
+    </div>
+</body>
+</html>
