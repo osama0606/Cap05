@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Author(name, birthYear, nationality)
+    {
+        this.Name=name;
+        this.birthYear=birthYear;
+        this.nationality=nationality;
+
+    }
+    let Osama = new Author("Osama", 1999, "Indian")
+    function Book(title,Author,genre,price)
+    {
+        this.Title=title;
+        this.Author=Author;
+        this.Genre = genre;
+        this.Price=price;
+        this.getBookInfo=function()
+        {
+            console.log(`Books title is  ${this.Title}, Autor's name is ${this.Author.Name}, The book genre is  ${this.Genre} and the book price is  ${this.Price}Rs.`);
+        };
+    }
+
+let Book1 = new Book("kali haveli", Osama, "Horror", 499)
+    Book1.getBookInfo()
+    console.log(Book1)
+</script>
+</html>
