@@ -1,0 +1,71 @@
+<!-- Prototypal Inheritance
+Level: 1
+Type: Implementation
+Avg Duration: 1 Hrs
+Problem Statement :-
+You have been appointed as senior developer in Tata’s R&D department. The engineers there are lazy, they don’t want to do everything from scratch whenever they create a new model. They expect you to help them create an inheritance model for the automobiles.
+
+Description :-
+Implement an inheritance model for four wheeler automobiles.
+Implement using both object.create() and constructor functions().
+Think of properties of what can be inherited.
+Submission File -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Automobile Inheritance Model</h1>
+</body>
+<script>
+    function fourWheeler(brand, model, speed, engineCC, color)
+    {
+        this.Brand=brand;
+        this.Model=model;
+        this.Speed=speed;
+        this.engineCC=engineCC;
+        this.Color=color;
+        fourWheeler.prototype.accelerator=function()
+        {
+            console.log(`Increase the Speed`)
+        };
+        fourWheeler.prototype.brake=function()
+        {
+            console.log(`Decrease the Speed`)
+        }
+    }
+    let Audi=new fourWheeler("Audi", "R8", 420, "1200CC", "White");
+    function car(airBags, sunRoof)
+    {
+        this.basicVehicle=Object.create(Audi)
+        this.airBags=airBags;
+        this.sunRoof=sunRoof;
+        car.prototype.honk=function()
+        {
+            console.log(`Beep Beep`);
+        }
+    }
+    let audiR8= new car(4, "Yes");
+    audiR8.basicVehicle.accelerator();
+    audiR8.basicVehicle.brake();
+    console.log(audiR8.basicVehicle.Brand);
+    console.log(audiR8.basicVehicle.Color);
+    console.log(audiR8.basicVehicle.Model);
+    console.log(`this model has ${audiR8.airBags} airbags and ${audiR8.sunRoof}, the sunroof also has this model.`);
+    audiR8.honk();
+    console.log(audiR8)
+
+
+
+
+
+
+
+
+
+</script>
+</html>
