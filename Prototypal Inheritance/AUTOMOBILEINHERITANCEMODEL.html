@@ -24,40 +24,47 @@ Submission File -->
 <script>
     function fourWheeler(brand, model, speed, engineCC, color)
     {
-        this.Brand=brand;
-        this.Model=model;
-        this.Speed=speed;
+        this.brand=brand;
+        this.model=model;
+        this.speed=speed;
         this.engineCC=engineCC;
-        this.Color=color;
-        fourWheeler.prototype.accelerator=function()
-        {
-            console.log(`Increase the Speed`)
-        };
-        fourWheeler.prototype.brake=function()
-        {
-            console.log(`Decrease the Speed`)
-        }
+        this.color=color;
+       
     }
-    let Audi=new fourWheeler("Audi", "R8", 420, "1200CC", "White");
+
+    fourWheeler.prototype.accelerator=function()
+        {
+            console.log(`Pleas Fast`)
+        };
+    fourWheeler.prototype.brake=function()
+        {
+            console.log(`Please Brake`)
+        }
+
+    let Maruti = new fourWheeler("Maruti", "Dzire", 240, "1000CC", "Red");
+
     function car(airBags, sunRoof)
     {
-        this.basicVehicle=Object.create(Audi)
+        this.Vehicle=Object.create(Maruti)
         this.airBags=airBags;
         this.sunRoof=sunRoof;
-        car.prototype.honk=function()
-        {
-            console.log(`Beep Beep`);
-        }
+       
     }
-    let audiR8= new car(4, "Yes");
-    audiR8.basicVehicle.accelerator();
-    audiR8.basicVehicle.brake();
-    console.log(audiR8.basicVehicle.Brand);
-    console.log(audiR8.basicVehicle.Color);
-    console.log(audiR8.basicVehicle.Model);
-    console.log(`this model has ${audiR8.airBags} airbags and ${audiR8.sunRoof}, the sunroof also has this model.`);
-    audiR8.honk();
-    console.log(audiR8)
+    car.prototype.honk=function()
+        {
+            console.log(`Pop Pop`);
+        }
+
+
+    let Ertiga = new car(4, "Yes");
+    Ertiga.Vehicle.accelerator();
+    Ertiga.Vehicle.brake();
+    console.log(Ertiga.Vehicle.brand);
+    console.log(Ertiga.Vehicle.color);
+    console.log(Ertiga.Vehicle.model);
+    console.log(`this model has ${Ertiga.airBags} airbags and ${Ertiga.sunRoof}, the sunroof also has this model.`);
+    Ertiga.honk();
+    console.log(Ertiga)
 
 
 
