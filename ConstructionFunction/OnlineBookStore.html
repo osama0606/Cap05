@@ -6,31 +6,75 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form id = "authorData">
+       <input id = "authorName" type="text" placeholder="Enter Your Name">
+       <input id = "authorDob" type="date" placeholder="Enter Birth Date">
+       <input id = "authorNation" type="text" placeholder="Enter Nationality">
+       <input type="submit">
+    </form>
+
+   <hr>
+
+   <form action="" id = "bookData">
+    <input id = "bookName" type="text" placeholder="Enter Book Title">
+    <input id = "bookGener" type="text" placeholder="Enter Book Genre">
+    <input id = "bookPrice" type="text" placeholder="Enter Book Price">
+    <input type="submit">
+ </form>
+
 </body>
 <script>
-    function Author(name, birthYear, nationality)
+    function Author(name, dob, nation)
     {
-        this.Name=name;
-        this.birthYear=birthYear;
-        this.nationality=nationality;
+        this.name=name;
+        this.dob=dob;
+        this.nationy=nation;
 
     }
-    let Osama = new Author("Osama", 1999, "Indian")
-    function Book(title,Author,genre,price)
+    
+    function Book(title,author,genre,price)
     {
         this.Title=title;
-        this.Author=Author;
+        this.author=author;
         this.Genre = genre;
         this.Price=price;
-        this.getBookInfo=function()
-        {
-            console.log(`Books title is  ${this.Title}, Autor's name is ${this.Author.Name}, The book genre is  ${this.Genre} and the book price is  ${this.Price}Rs.`);
-        };
+       
     }
 
-let Book1 = new Book("kali haveli", Osama, "Horror", 499)
-    Book1.getBookInfo()
-    console.log(Book1)
+let myForm = document.querySelector("#authorData");
+
+let data = [];
+
+let BookData = [];
+
+myForm.addEventListener("submit", function(e){
+     e.preventDefault();
+
+     let authorName = document.getElementById("authorName").value;
+     let authorDob = document.getElementById("authorDob").value;
+     let authorNation = document.getElementById("authorNation").value;
+
+     author1 = new Author(authorName, authorDob, authorNation);
+
+     data.push(author1);
+     console.log(data);
+     myForm.reset();
+})
+
+let bookData = document.querySelector("#bookData");
+
+bookData.addEventListener("submit", function(event){
+    event.preventDefault();
+
+    let bookName = document.getElementById("bookName").value;
+    let bookGener = document.getElementById("bookGener").value;
+    let bookPrice = document.getElementById("bookPrice").value;
+
+    let book = new Book(bookName, data[0], bookGener, bookPrice);
+    data = [];
+    console.log(book);
+    bookData.reset();
+})
+    
 </script>
 </html>
