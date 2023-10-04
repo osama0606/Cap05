@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone pay</title>
+    <style>
+        .loader {
+          margin: auto;
+          margin-top: 20px;
+          /* border-radius: 50%; */
+          border: 8px solid black;
+          border-top: 8px solid #F6AA2F;
+          width: 100px;
+          height: 100px;
+          animation: spin 5s linear infinite;
+        }
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        #container{
+            margin: auto;
+            width: 500px;
+            height: 650px;
+            border: 2px solid red;
+        }
+        #paymentDiv{
+            max-width: 100%;
+            height: 500px;
+            background-color: #5f20a0;
+            border-radius: 0px 0px 20px 20px;
+        }
+        #container>img{
+            max-width: 100%;
+            height: 150px;
+            border: 4px solid #5f20a0;
+            border-radius: 20px 20px 0px 0px;
+        }
+        input{
+            margin-left: 10px;
+            margin-top: 20px;
+            width: 50%;
+            height: 30px;
+            font-size: 18px;
+            border-radius: 20px;
+            background-color: white;
+            color: #5f20a0; 
+            font-weight: 700;
+        }
+        button{
+            margin-left: 30px;
+            width: 60px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #5f20a0;
+            background-color: white;
+            border-radius: 5px;
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: #5F20A0;
+            color: white;
+            border: 2px solid white;
+        }
+        #statusDiv{
+            display: none;
+            max-width: 100%;
+            height: 200px;
+            margin: 80px 0px;
+            background-color: #5F20A0;
+            display: grid;
+            grid-template-rows: auto;
+            justify-content: center;
+            border: 2px dashed teal;
+        }
+        #statusDiv>img{
+            margin: auto;
+            margin-top: 20px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PhonePe_Logo.svg/2560px-PhonePe_Logo.svg.png" alt="">
+        <div id="paymentDiv">
+            <input id="paymentInput" type="number" min="1" max="25000" placeholder="Enter Amount">
+            <button onclick="pay()">Pay</button>
+            <div id="statusDiv">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let paymentInput=document.querySelector("#paymentInput");
+    let display=document.querySelector("#statusDiv");
+    let paymentDiv=document.querySelector("#paymentDiv");
+    paymentInput.addEventListener("blur", function(){
+        if(paymentInput.value<=0)
+                {
+                    alert(`Please enter amount (in rupees)`)
+                    paymentInput.value="";
+                }
+    })
+    function pay()
+    {
+        if(paymentInput.value!="")
+        {
+            new Promise(function(resolve, reject)
+                {
+                    setTimeout(function(){
+                        (paymentInput.value>0 && paymentInput.value<=25000)?resolve():null;
+        
+                        (paymentInput.value>25000)?reject():null;
+                    },3000)
+                    display.innerHTML=`<div class="loader"></div>
+                        <h3 style="color: #F6AA2F; font-size: 28px; font-family: Arial, Helvetica, sans-serif;">Payment Processing...</h3>`
+                        paymentDiv.style="background-color: #F6AA2F";
+                        display.style="background-color: white";
+                })
+                .then(res =>
+                {
+                    display.innerHTML=`<img src="https://cdn-icons-png.flaticon.com/512/3841/3841566.png" alt="">
+                        <h3 style="color: #52B255; font-size: 28px; font-family: Arial, Helvetica, sans-serif;">Transection Successful ${paymentInput.value}Rs</h3>`;
+                    paymentDiv.style="background-color: #52B255";
+                    display.style="background-color: white";
+                })
+                .catch(err =>
+                {
+                    display.innerHTML=`<img src="https://cdn-icons-png.flaticon.com/512/6659/6659895.png" alt="">
+                        <h3 style="color: #F44336; font-size: 28px; font-family: Arial, Helvetica, sans-serif;">Transection Failed!</h3>`
+                        paymentDiv.style="background-color: #F44336";
+                        display.style="background-color: white";
+                });
+        }
+    }
+</script>
+</html>
