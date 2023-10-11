@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: aqua;
+    }
+    
+</style>
+<body>
+    <input type="text" id="inp1">
+    <input type="text" id="inp2">
+
+
+    <button onclick="b1()">Add</button>
+    <button onclick="b2()">Sub</button>
+    <button onclick="b3()">Mul</button>
+    <button onclick="b4()">Div</button>
+    <button onclick="reset()">Clear</button>
+</body>
+</html>
+<script>
+function b1(){
+
+   let num1 = document.getElementById("inp1").value;
+   let num2 = document.getElementById("inp2").value;
+   let res = +num1 + +num2 ;
+
+   alert(res);
+
+}
+function b2(){
+    let num1 = document.getElementById("inp1").value;
+   let num2 = document.getElementById("inp2").value;
+   let res = +num1 - +num2 ;
+
+   alert(res);
+}
+function b3(){
+    let num1 = document.getElementById("inp1").value;
+   let num2 = document.getElementById("inp2").value;
+   let res = +num1 * +num2 ;
+
+   alert(res);
+}
+function b4(){
+    let num1 = document.getElementById("inp1").value;
+   let num2 = document.getElementById("inp2").value;
+   let res = +num1 / +num2 ;
+
+   alert(res);
+}
+function reset(){
+    document.getElementById("inp1").value="";
+    document.getElementById("inp2").value="";
+}
+</script>

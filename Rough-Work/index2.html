@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .data{
+            display: flex;
+            justify-content: space-around;
+        
+        }
+        #min{
+            border: 1px solid black;
+            font-size: 50px;
+        }
+        #max{
+            border: 1px solid black;
+            font-size: 50px;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        #score{
+            height: 30px;
+            width: 200px;
+            border: 1px solid black;
+        }
+        .keys{
+            display: grid;
+            grid-template-columns: repeat(3, 30px);
+            justify-content: center;
+            gap: 10px;
+           
+        }
+        #enter{
+           height: 20px;
+           width: 70px;
+           background-color: black;
+           color: beige;
+           
+        }
+        .keys>button{
+            background-color: rgb(2, 2, 2);
+            color: azure;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="data">
+        <div id="min" style="background-color: aqua;  color: black;">100</div>
+        <div id="max" style="background-color: aquamarine; color: black;">120</div>
+    </div>
+    <div class="container">
+        <div id="score"></div>
+        <div class="keys">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>0</button>
+           
+        </div>
+    </div>
+    <button id="enter">Enter</button>
+</body>
+</html>
+<script>
+let min = document.getElementById("min");
+let max = document.getElementById("max");
+let score = document.getElementById("score");
+let keys = document.querySelectorAll(".keys>button");
+let enter = document.getElementById("enter");
+
+for(let i=0; i<keys.length; i++){
+    keys[i].addEventListener("click", function(){
+        score.innerText += keys[i].innerText;
+    })
+}
+enter.addEventListener("click", function(){
+    if(Number(score.innerText) < Number(min.innerText)){
+        min.innerText = score.innerText;
+    }
+    if(Number(score.innerText) > Number(max.innerText)){
+        max.innerText = score.innerText;
+    }
+    score.innerText="";
+})
+</script>

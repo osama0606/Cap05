@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Masai Student Details</h1>
+   
+    <input id="name" type="text" placeholder="Enter Your Name">
+    <input id="email" type="text" placeholder="Enter Your Email"> 
+    <input id="mobile" type="text" placeholder="Enter Your Mobile">
+    <select id="gender" >
+        <option></option>
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+
+    <h2 id="dName">Display Your Name</h2>
+    <h3 id="dEmail">Display Your Email</h3>
+    <h4 id="dMobile">Display Your Mobile</h4>
+    <h5 id="dGender">Display Your Gender</h5>
+
+    <button onclick="showName()">Name</button>
+    <button onclick="showEmail()">Email</button>
+    <button onclick="showMobile()">Mobile</button>
+    <button onclick="showGender()">Gender</button>
+    <button onclick="resetF()">Reset</button>
+    <button onclick="resetD()">Display</button>
+
+    <hr>
+    
+   
+</body>
+</html>
+<script>
+   
+        function showName(){ 
+            let dName = document.getElementById("dName");
+            let name = document.getElementById("name").value;  
+             alert(dName.innerText = name)
+        }
+        function showEmail(){
+            let dEmail = document.getElementById("dEmail")
+            let email = document.getElementById("email").value;
+              alert(dEmail.innerText = email)
+        }
+        function showMobile(){
+            let dMobile = document.getElementById("dMobile")
+            let mobile = document.getElementById("mobile").value;
+              alert(dMobile.innerText = mobile)
+        }
+        function showGender(){
+            let dGender = document.getElementById("dGender")
+            let gender = document.getElementById("gender").value;
+              alert(dGender.innerText = gender)
+        }
+        function resetF(){
+            document.getElementById("name").value ="";
+            document.getElementById("email").value ="";
+            document.getElementById("mobile").value ="";
+            document.getElementById("gender").value ="";
+        }
+        function resetD(){
+            document.getElementById("dName").innerText ="";
+            document.getElementById("dEmail").innerText ="";
+            document.getElementById("dMobile").innerText ="";
+            document.getElementById("dGender").innerText ="";
+
+           
+        }
+       
+
+</script>
