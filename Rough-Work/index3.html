@@ -1,26 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .container {
+        color: rgb(10, 34, 34);
+        font-size: 48px;
+        border: 5px solid black;
+        background-color: aqua;
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 50px;
+      }
+      .card{
+        border: 5px solid black;
+        margin: 50px;
+        padding: 5px;
+        border-radius: 50px;
+        background-color: aquamarine;
+      }
+    </style>
+    <title>Create UI with DOM & JS</title>
+  </head>
+  <body>
     <div id="root"></div>
-   <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</body>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script type="text/babel">
+      const rootElement = document.getElementById("root")
+
+     
+       const SuperHeroDetails = ({ name,
+        hobbies,
+        hasSuperPowers,
+        isMarried,
+        addres,
+        age,
+      }) => {
+        return (
+                 <div className = "card">
+                  <p>Name: {name}</p>
+                  <p>Hobbies:{hobbies.join(", ")}</p>
+                  <p>HasSuperPower:{""}
+                    <span style={{color: hasSuperPowers? "green" : "red"}}>
+                      {hasSuperPowers? "Yes" : "No"}
+                      </span>
+                    </p>
+                  <p>IsMarried:{""}
+                    <span style={{color: isMarried? "yellow" : "orange"}}>
+                      {isMarried? "Yes" : "No"}
+                      </span>
+                    </p>
+                  <div style = {{color: "blue",}} >
+                     <p>Street:{addres.street}</p>
+                     <p>City:{addres.city}</p>
+                     <p>Country:{addres.country}</p>
+                  </div>
+                  <p>Age:{age}</p>
+                  
+                  </div>
+        )
+      }
+     const element = (<div className="container"> 
+      <SuperHeroDetails
+      name= "Osama"
+      hobbies={[" Reading", "Cricket", "Coding", "Fitness Training"]}
+      hasSuperPowers={true}
+      isMarried={false}
+      addres={{
+        street:"Maa Zee Nagar",
+        city:"Shahada",
+        country:"India"
+  }}
+  age={24}
+      />
+
+
+
+      <SuperHeroDetails
+      name= "Amjad"
+      hobbies={[" Reading", "Pubg", "Coding", "Fitness Training"]}
+      hasSuperPowers={false}
+      isMarried={true}
+      addres={{
+        street:"Abcd",
+        city:"Balapur",
+        country:"India"
+  }}
+  age={24}
+      />
+      </div>
+     
+     )
+
+     
+
+
+      const reactRoot = ReactDOM.createRoot(rootElement)
+
+      reactRoot.render(element)
+    </script>
+  </body>
 </html>
-
-
-<script type="text/babel">
-  
-
-  const rootElement = document.getElementById("root");
-
-      const element = <div>Carpe Diem</div>;
-       // Step 3 : Change the code to JSX
-      const reactRoot = ReactDOM.createRoot(rootElement);
-      reactRoot.render(element);
-</script>
