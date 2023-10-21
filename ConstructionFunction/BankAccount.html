@@ -13,21 +13,18 @@
      function BankAccount(accountNumber, name, type, balance)
      {
         this.AccountNumber=accountNumber;
+
         this.Name=name;
+
         this.Type=type;
+        
         this.balance=balance;
-        if(balance >= 0)
-        {
-            this.Active=true
-        }else
-        {
-            this.Active=false;
-        }
+        
 
         this.Deposit=function(Amount)
         {
             this.balance+=Amount;
-            console.log(`${this.Name} Your Updated balance is ${this.balance}.`);
+            console.log(`${this.Name} Your Updated balance is  ${this.balance}₹`);
            
            
         };
@@ -36,16 +33,16 @@
             if(this.balance>=Amount)
             {
                 this.balance-=Amount;
-                console.log(`${this.Name} Your Updated balance is ${this.balance}.`)
+                console.log(`${this.Name} Your Updated balance is ${this.balance}₹.`)
             }
             else
             {
-                console.log(`${this.Name} Your balance Insufficient ${this.balance}.`)
+                console.log(`${this.Name} Your balance Insufficient ${this.balance}₹.`)
             }
         };
         this.checkBalance=function()
         {
-            console.log(`${this.Name}! your Bank-Balance is ${this.balance}.`)
+            console.log(`${this.Name}! your Bank-Balance is ${this.balance}₹`)
         };
         this.isActive=function()
         {
@@ -61,32 +58,42 @@
      }
 
      arr.push(new BankAccount(645891267835, "Osama", "Savings", 3000));
+
      arr.push(new BankAccount(845679235786, "Amjad", "Savings", 5000));
+
      arr.push(new BankAccount(658799842315, "Iftekhar", "Current", 7000));
+
      arr.push(new BankAccount(876598312454, "Shoib", "Current", 6000));
+
      arr.push(new BankAccount(356897415698, "Danish", "Savings", 3000));
 
  
-     arr[0].Deposit(500);
+     arr[0].Deposit(3500);
+
      arr[1].checkBalance();
+
      arr[2].Withdraw(10000);
+
      arr[3].isActive();
+
      arr[4].Withdraw(1000);
 
 
 
      getTotalBalnace =function(arr)
      {
-        let totalBankBalance = 0;
-       for(let i=0; i<arr.lenght; i++){
+        let total = 0;
+       for(const ele of arr){
         
-        if(ele.Active == true)
+        if(ele.isActive())
             {
                 totalBankBalance+=ele.balance
             }
        }
-        console.log(`Total Bank Balance is  ${totalBankBalance}`)
+        return total;
      }
-     getTotalBalnace(arr);
+    const totalBankBalance = getTotalBalnace(arr);
+
+    console.log(`Total Bank Balance of Active Users ${totalBankBalance}₹`)
 </script>
 </html>
