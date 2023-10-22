@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+function Automobile(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+}
+
+
+
+
+
+function Car(make, model, year) {
+    
+    Automobile.call(this, make, model, year);
+    
+}
+
+
+Car.prototype = Object.create(Automobile.prototype);
+
+
+Car.prototype.drive = function() {
+    console.log(`Driving the ${this.year} ${this.make} ${this.model}`);
+};
+
+
+const myCar = new Car('Toyota', 'Camry', 2022);
+
+
+myCar.start();
+myCar.drive();
+
+</script>
