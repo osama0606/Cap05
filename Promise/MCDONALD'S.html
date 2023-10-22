@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtual McDonald's</title>
+    <style>
+        .order-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .food-image {
+            max-width: 100%;
+        }
+        .order-details {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Virtual McDonald's</h1>
+    <button id="orderButton">Order Food</button>
+    <br>
+    <input type="checkbox" id="burgerCheckbox" value="Burger"> Burger
+    <input type="checkbox" id="friesCheckbox" value="Fries"> Fries
+    <input type="checkbox" id="drinkCheckbox" value="Drink"> Drink
+
+    <div class="order-container" id="orderContainer">
+        <div class="order-details" id="orderDetails"></div>
+        <img class="food-image" id="foodImage" src="" alt="">
+    </div>
+
+    <script>
+        document.getElementById("orderButton").addEventListener("click", () => {
+            const selectedItems = [];
+            if (document.getElementById("burgerCheckbox").checked) {
+                selectedItems.push("Burger");
+            }
+            if (document.getElementById("friesCheckbox").checked) {
+                selectedItems.push("Fries");
+            }
+            if (document.getElementById("drinkCheckbox").checked) {
+                selectedItems.push("Drink");
+            }
+
+            if (selectedItems.length === 0) {
+                alert("Please select at least one item to order.");
+            } else {
+                const orderPromise = new Promise((resolve) => {
+                   
+                    const processingTime = Math.floor(Math.random() * 4000) + 1000;
+                    setTimeout(() => {
+                        resolve(selectedItems);
+                    }, processingTime);
+                });
+
+                orderPromise.then((orderItems) => {
+                    displayOrder(orderItems);
+                });
+            }
+        });
+
+        function displayOrder(orderItems) {
+            const foodImage = document.getElementById("foodImage");
+            const orderDetails = document.getElementById("orderDetails");
+
+           
+            const foodImages = [
+                "burger.jpg",
+                "fries.jpg",
+                "drink.jpg"
+            ];
+            const randomImage = foodImages[Math.floor(Math.random() * foodImages.length)];
+            foodImage.src = randomImage;
+
+       
+            const orderId = Math.floor(Math.random() * 1000);
+
+            orderDetails.innerHTML = `Order ID: ${orderId}<br>Items: ${orderItems.join(", ")}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment System</title>
+    
+</head>
+<style>
+    .hidden {
+    display: none;
+}
+
+#processing, #success, #failure {
+    text-align: center;
+}
+
+</style>
+<body>
+    <h1>PhonePe Payment System</h1>
+    <button id="startPaymentButton">Make Payment</button>
+
+    <div id="processing" class="hidden">
+        
+        <p>Processing...</p>
+    </div>
+
+    <div id="success" class="hidden">
+       
+        <p>Payment Successful</p>
+    </div>
+
+    <div id="failure" class="hidden">
+      
+        <p>Payment Failed</p>
+    </div>
+
+    
+</body>
+</html>
+<script>
+document.getElementById("startPaymentButton").addEventListener("click", () => {
+    showProcessingUI();
+    simulatePayment()
+        .then(() => showSuccessUI())
+        .catch(() => showFailureUI());
+});
+
+function simulatePayment() {
+    return new Promise((resolve, reject) => {
+        
+        setTimeout(() => {
+            const isPaymentAccepted = Math.random() < 0.5; 
+            if (isPaymentAccepted) {
+                resolve();
+            } else {
+                reject();
+            }
+        }, 2000);
+    });
+}
+
+function showProcessingUI() {
+    document.getElementById("processing").style.display = "block";
+    document.getElementById("success").style.display = "none";
+    document.getElementById("failure").style.display = "none";
+}
+
+function showSuccessUI() {
+    document.getElementById("processing").style.display = "none";
+    document.getElementById("success").style.display = "block";
+    document.getElementById("failure").style.display = "none";
+}
+
+function showFailureUI() {
+    document.getElementById("processing").style.display = "none";
+    document.getElementById("success").style.display = "none";
+    document.getElementById("failure").style.display = "block";
+}
+
+</script>
