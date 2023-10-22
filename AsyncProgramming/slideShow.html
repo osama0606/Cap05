@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .slideshow-container {
+    display: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+</style>
+<body>
+    <div class="slideshow-container">
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <!-- Add more images here -->
+    </div>
+
+    <button id="startStopButton" onclick="toggleSlideshow()">Start</button>
+    <button id="prevButton" onclick="prevSlide()">Previous</button>
+    <button id="nextButton" onclick="nextSlide()">Next</button>
+</body>
+</html>
+<script>
+    let slideIndex = 0;
+let isSlideshowRunning = false;
+let timer;
+
+const slides = document.querySelectorAll(".slideshow-container img");
+const startStopButton = document.getElementById("startStopButton");
+const prevButton = document.getElementById("prevButton");
+const nextButton = document.getElementById("nextButton");
+
+function showSlide(n) {
+    slides.forEach(slide => slide.style.display = "none");
+    slides[n].style.display = "block";
+    slideIndex = n;
+}
+
+function nextSlide() {
+    showSlide(slideIndex + 1);
+    clearInterval(timer);
+    isSlideshowRunning = false;
+    startStopButton.innerText = "Start";
+}
+
+function prevSlide() {
+    showSlide(slideIndex - 1);
+    clearInterval(timer);
+    isSlideshowRunning = false;
+    startStopButton.innerText = "Start";
+}
+
+function toggleSlideshow() {
+    if (isSlideshowRunning) {
+        clearInterval(timer);
+        isSlideshowRunning = false;
+        startStopButton.innerText = "Start";
+    } else {
+        timer = setInterval(() => nextSlide(), 2000); // Change image every 2 seconds
+        isSlideshowRunning = true;
+        startStopButton.innerText = "Stop";
+    }
+}
+
+showSlide(slideIndex);
+
+// Start the slideshow when the page loads
+toggleSlideshow();
+
+</script>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Timer</title>
+</head>
+<style>
+
+</style>
+<body>
+    <h1>Countdown Timer</h1>
+    <input id="hours" type="number" placeholder="Hours">
+    <input id="minutes" type="number" placeholder="Minutes">
+    <input id="seconds" type="number" placeholder="Seconds">
+    <button id="startButton" onclick="startTimer()">Start</button>
+    <button id="pauseButton" onclick="pauseTimer()">Pause</button>
+    <button id="resetButton" onclick="resetTimer()">Reset</button>
+    <p id="timerDisplay">00:00:00</p>
+
+    <script>
+
+let timerInterval;
+let isTimerRunning = false;
+
+const hoursInput = document.getElementById("hours");
+const minutesInput = document.getElementById("minutes");
+const secondsInput = document.getElementById("seconds");
+const startButton = document.getElementById("startButton");
+const pauseButton = document.getElementById("pauseButton");
+const resetButton = document.getElementById("resetButton");
+const timerDisplay = document.getElementById("timerDisplay");
+
+function startTimer() {
+    if (!isTimerRunning) {
+        const totalSeconds = parseInt(hoursInput.value) * 3600 + parseInt(minutesInput.value) * 60 + parseInt(secondsInput.value);
+        
+        if (totalSeconds <= 0) {
+            return;
+        }
+
+        isTimerRunning = true;
+        startButton.disabled = true;
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+}
+
+function updateTimer() {
+    const totalSeconds = parseInt(hoursInput.value) * 3600 + parseInt(minutesInput.value) * 60 + parseInt(secondsInput.value);
+    
+    if (totalSeconds <= 0) {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        startButton.disabled = false;
+    } else {
+        totalSeconds--;
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+        timerDisplay.textContent = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+    }
+}
+
+function padZero(value) {
+    return value.toString().padStart(2, "0");
+}
+
+function pauseTimer() {
+    clearInterval(timerInterval);
+    isTimerRunning = false;
+    startButton.disabled = false;
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    isTimerRunning = false;
+    hoursInput.value = "";
+    minutesInput.value = "";
+    secondsInput.value = "";
+    timerDisplay.textContent = "00:00:00";
+    startButton.disabled = false;
+}
+
+
+    </script>
+</body>
+</html>
