@@ -20,7 +20,7 @@ img {
     <div class="slideshow-container">
         <img src="image1.jpg" alt="Image 1">
         <img src="image2.jpg" alt="Image 2">
-        <!-- Add more images here -->
+        
     </div>
 
     <button id="startStopButton" onclick="toggleSlideshow()">Start</button>
@@ -64,7 +64,7 @@ function toggleSlideshow() {
         isSlideshowRunning = false;
         startStopButton.innerText = "Start";
     } else {
-        timer = setInterval(() => nextSlide(), 2000); // Change image every 2 seconds
+        timer = setInterval(() => nextSlide(), 2000); 
         isSlideshowRunning = true;
         startStopButton.innerText = "Stop";
     }
@@ -72,7 +72,7 @@ function toggleSlideshow() {
 
 showSlide(slideIndex);
 
-// Start the slideshow when the page loads
+
 toggleSlideshow();
 
 </script>
