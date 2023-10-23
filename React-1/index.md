@@ -52,3 +52,7 @@ Ans : createElement returns a React element object with a few properties:
 # What is the meaning of render and root?
 
 Ans : React renders HTML to the web page by using a function called render(). The purpose of the function is to display the specified HTML code inside the specified HTML element. In the render() method, we can read props and state and return our JSX code to the root component of our app.
+
+
+
+
